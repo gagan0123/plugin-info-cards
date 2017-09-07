@@ -150,7 +150,7 @@ if ( ! class_exists( 'Plugin_Info_Cards_Helper' ) ) {
 				$res = new WP_Error(
 					'plugins_api_failed', sprintf(
 						/* translators: %s: support forums URL */
-						__( 'An unexpected error occurred. Something may be wrong with WordPress.org or this server&#8217;s configuration. If you continue to have problems, please try the <a href="%s">support forums</a>.' ), __( 'https://wordpress.org/support/' )
+						__( 'An unexpected error occurred. Something may be wrong with WordPress.org or this server&#8217;s configuration. If you continue to have problems, please try the <a href="%s">support forums</a>.', 'plugin-info-cards' ), __( 'https://wordpress.org/support/', 'plugin-info-cards' )
 					), $request->get_error_message()
 				);
 			} else {
@@ -159,7 +159,7 @@ if ( ! class_exists( 'Plugin_Info_Cards_Helper' ) ) {
 					$res = new WP_Error(
 						'plugins_api_failed', sprintf(
 							/* translators: %s: support forums URL */
-							__( 'An unexpected error occurred. Something may be wrong with WordPress.org or this server&#8217;s configuration. If you continue to have problems, please try the <a href="%s">support forums</a>.' ), __( 'https://wordpress.org/support/' )
+							__( 'An unexpected error occurred. Something may be wrong with WordPress.org or this server&#8217;s configuration. If you continue to have problems, please try the <a href="%s">support forums</a>.', 'plugin-info-cards' ), __( 'https://wordpress.org/support/', 'plugin-info-cards' )
 						), wp_remote_retrieve_body( $request )
 					);
 				}
@@ -214,11 +214,11 @@ if ( ! class_exists( 'Plugin_Info_Cards_Helper' ) ) {
 
 			if ( $r['number'] ) {
 				/* translators: 1: The rating, 2: The number of ratings */
-				$format  = _n( '%1$s rating based on %2$s rating', '%1$s rating based on %2$s ratings', $r['number'] );
+				$format  = _n( '%1$s rating based on %2$s rating', '%1$s rating based on %2$s ratings', $r['number'], 'plugin-info-cards' );
 				$title   = sprintf( $format, number_format_i18n( $rating, 1 ), number_format_i18n( $r['number'] ) );
 			} else {
 				/* translators: 1: The rating */
-				$title = sprintf( __( '%s rating' ), number_format_i18n( $rating, 1 ) );
+				$title = sprintf( __( '%s rating', 'plugin-info-cards' ), number_format_i18n( $rating, 1 ) );
 			}
 
 			$output  = '<div class="star-rating">';
