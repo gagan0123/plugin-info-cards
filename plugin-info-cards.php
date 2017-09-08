@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Plugin Name: Plugin Info Cards
  * Plugin URI:  https://github.com/gagan0123/plugin-info-cards
@@ -11,19 +10,31 @@
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain: plugin-info-cards
  * Domain Path: /languages
+ *
+ * @package Plugin_Info_Cards
  */
+
 /** If this file is called directly, abort. */
-if ( !defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( !defined( 'GS_PIC_PATH' ) ) {
+if ( ! defined( 'GS_PIC_PATH' ) ) {
 	/**
-	 * Path to the plugin directory
-	 * 
+	 * Path to the plugin directory.
+	 *
 	 * @since 1.0
 	 */
 	define( 'GS_PIC_PATH', trailingslashit( plugin_dir_path( __FILE__ ) ) );
+}
+
+if ( ! defined( 'GS_PIC_URL' ) ) {
+	/**
+	 * URL to the current plugin directory.
+	 *
+	 * @since 1.0
+	 */
+	define( 'GS_PIC_URL', trailingslashit( plugins_url( '', __FILE__ ) ) );
 }
 
 /**
