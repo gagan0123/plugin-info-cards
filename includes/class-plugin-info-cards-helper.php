@@ -189,6 +189,8 @@ if ( ! class_exists( 'Plugin_Info_Cards_Helper' ) ) {
 		 *     @type bool   $echo   Whether to echo the generated markup. False to return the markup instead
 		 *                          of echoing it. Default true.
 		 * }
+		 *
+		 * @return string Output HTML for star ratings.
 		 */
 		public function wp_star_rating( $args = array() ) {
 			$defaults    = array(
@@ -253,12 +255,12 @@ if ( ! class_exists( 'Plugin_Info_Cards_Helper' ) ) {
 		 *
 		 * @param string $slug Plugin slug to be fetched.
 		 *
-		 * @return type Description
+		 * @return array|WP_Error Array of plugin data or WP_Error is unable to retrieve.
 		 */
 		public function get_plugin_by_slug( $slug ) {
-			$result = get_transient( 'pic_plugin_' . $slug );
-			if ( false === $result ) {
-				$result  = $this->plugins_api(
+			$plugin = get_transient( 'pic_plugin_' . $slug );
+			if ( false === $plugin ) {
+				$plugin  = $this->plugins_api(
 					array(
 						'slug'   => $slug,
 						'locale' => get_locale(),
@@ -272,10 +274,12 @@ if ( ! class_exists( 'Plugin_Info_Cards_Helper' ) ) {
 						),
 					)
 				);
-				$plugin  = $this->remove_unused_params( $result );
-				set_transient( 'pic_plugin_' . $slug, $plugin, 6 * HOUR_IN_SECONDS );
+				if ( ! is_wp_error( $plugin ) ) {
+					$plugin = $this->remove_unused_params( $plugin );
+					set_transient( 'pic_plugin_' . $slug, $plugin, 6 * HOUR_IN_SECONDS );
+				}
 			}
-			return $result;
+			return $plugin;
 		}
 
 		/**

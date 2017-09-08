@@ -121,7 +121,11 @@ if ( ! class_exists( 'Plugin_Info_Cards' ) ) {
 			foreach ( $atts as $key => $slug ) {
 				if ( is_int( $key ) ) {
 					$plugin  = $this->helper->get_plugin_by_slug( $slug );
-					$output  .= $this->generate_html( $plugin );
+					if ( ! is_wp_error( $plugin ) ) {
+						$output  .= $this->generate_html( $plugin );
+					} else {
+						$output .= 'Failed to retreive plugin information for the plugin ' . $slug . '<br>';
+					}
 				}
 			}
 
