@@ -33,19 +33,6 @@ module.exports = function ( grunt ) {
 				]
 			}
 		},
-		uglify: {
-			dist: {
-				options: {
-					mangle: {
-						reserved: [ 'jQuery', '$' ]
-					},
-					sourceMap: true,
-				},
-				files: {
-					'public/js/plugin-info-cards.min.js': [ 'public/js/plugin-info-cards.js' ]
-				}
-			}
-		},
 		makepot: {
 			target: {
 				options: {
@@ -70,10 +57,6 @@ module.exports = function ( grunt ) {
 				files: [ 'public/sass/**/*.scss' ],
 				tasks: [ 'sass' ]
 			},
-			uglify: {
-				files: [ 'public/js/*.js', '!public/js/*.min.js' ],
-				tasks: [ 'uglify' ]
-			},
 			wp_readme_to_markdown: {
 				files: [ 'readme.txt' ],
 				tasks: [ 'wp_readme_to_markdown' ]
@@ -83,7 +66,6 @@ module.exports = function ( grunt ) {
 
 	grunt.loadNpmTasks( 'grunt-wp-readme-to-markdown' );
 	grunt.loadNpmTasks( 'grunt-contrib-sass' );
-	grunt.loadNpmTasks( 'grunt-contrib-uglify' );
 	grunt.loadNpmTasks( 'grunt-contrib-watch' );
 	grunt.loadNpmTasks( 'grunt-wp-i18n' );
 
