@@ -1,0 +1,188 @@
+.plugin-info-card {
+    float: left;
+    margin: 0 8px 16px;
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+    h3 {
+        margin: 0 0 12px!important;
+        font-size: 18px;
+        line-height: 1.3;
+    }
+    .plugin-card-top {
+        position: relative;
+        padding: 20px 20px 10px;
+        min-height: 135px;
+    }
+
+    .plugin-action-buttons {
+        margin: 0; /* Override existing margins */
+    }
+
+    .name, .desc {
+        margin-left: 148px; /* icon + margin */
+        margin-right: 120px; /* action links */
+    }
+
+    .action-links {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        width: 120px;
+    }
+
+    .plugin-action-buttons {
+        clear: right;
+        float: right;
+        margin-left: 2em;
+        margin-bottom: 1em;
+        text-align: right;
+    }
+
+    .plugin-action-buttons li {
+        margin-bottom: 10px;
+    }
+
+    .plugin-card-bottom {
+        clear: both;
+        padding: 12px 20px;
+        background-color: #fafafa;
+        border-top: 1px solid #ddd;
+        overflow: hidden;
+    }
+
+    .plugin-card-bottom .star-rating {
+        display: inline;
+    }
+
+    .column-rating {
+        line-height: 23px;
+    }
+
+    .column-rating, .column-updated {
+        margin-bottom: 4px;
+    }
+
+    .column-rating, .column-downloaded {
+        float: left;
+        clear: left;
+        max-width: 180px;
+    }
+
+    .column-updated, .column-compatibility {
+        text-align: right;
+        float: right;
+        clear: right;
+        width: 65%;
+        width: -webkit-calc( 100% - 180px );
+        width: calc( 100% - 180px );
+    }
+
+    .plugin-icon {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        width: 128px;
+        height: 128px;
+        margin: 0 20px 20px 0;
+    }
+
+    @import 'components/stars';
+
+    .button, .button-secondary {
+        display: inline-block;
+        text-decoration: none;
+        font-size: 13px;
+        line-height: 26px;
+        height: 28px;
+        margin: 0;
+        padding: 0 10px 1px;
+        cursor: pointer;
+        border-width: 1px;
+        border-style: solid;
+        -webkit-appearance: none;
+        -webkit-border-radius: 3px;
+        border-radius: 3px;
+        white-space: nowrap;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+
+        color: #555;
+        border-color: #ccc;
+        background: #f7f7f7;
+        -webkit-box-shadow: 0 1px 0 #ccc;
+        box-shadow: 0 1px 0 #ccc;
+        vertical-align: top;
+    }
+
+    ul.plugin-action-buttons{
+        list-style: none;
+    }
+
+    .column-compatibility span:before {
+        font: normal 20px/.5 dashicons;
+        speak: none;
+        display: inline-block;
+        padding: 0;
+        top: 4px;
+        left: -2px;
+        position: relative;
+        vertical-align: top;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-decoration: none !important;
+        color: #444;
+    }
+
+
+    @media screen and ( max-width: 1100px ) {
+
+        .action-links {
+            position: static;
+            margin-left: 148px;
+            width: auto;
+        }
+
+        .plugin-action-buttons {
+            float: none;
+            margin: 1em 0 0;
+            text-align: left;
+        }
+
+        .plugin-action-buttons li {
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .plugin-action-buttons li .button {
+            margin-right: 20px;
+        }
+
+        .name, .desc {
+            margin-right: 0;
+        }
+
+        .desc p:first-of-type {
+            margin-top: 0;
+        }
+
+        .fixed .column-date {
+            width: 14%;
+        }
+    }
+
+    @media screen and ( max-width: 782px ) {
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+
+
+
+

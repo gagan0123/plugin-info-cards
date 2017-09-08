@@ -1,0 +1,26 @@
+.star-rating .star {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    -webkit-font-smoothing: antialiased;
+    font-size: 20px;
+    line-height: 1;
+    font-family: dashicons;
+    text-decoration: inherit;
+    font-weight: 400;
+    font-style: normal;
+    vertical-align: top;
+    -webkit-transition: color .1s ease-in 0;
+    transition: color .1s ease-in 0;
+    text-align: center;
+    color: #ffb900;
+    &.star-half:before {
+        content: "\f459";
+    }
+    &.star-full:before {
+        content: "\f155";
+    }
+    &.star-empty:before {
+        content: "\f154";
+    }
+}
