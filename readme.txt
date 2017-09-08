@@ -1,5 +1,6 @@
 === Plugin Info Cards ===
 Contributors: gagan0123
+Donate Link: https://PayPal.me/gagan0123
 Tags: plugin, info, cards
 Requires at least: 4.1
 Tested up to: 4.8.1
