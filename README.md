@@ -17,13 +17,13 @@ Allows you to display information of a plugin in pages/posts using a shortcode
 Allows you to showcase information of any plugin in pages/posts using shortcode.
 
 ### Example usage: ###
-To display statistics of the plugin "Akismet" you can use
+To display statistics of the plugin "Akismet" you can use  
 `[plugin-info-cards akismet]`
 
-To display statistics of multiple plugins you can use
+To display statistics of multiple plugins you can use  
 `[plugin-info-cards akismet hello-dolly]`
 
-To display statistics of all the plugins a single author has contributed to, you can use
+To display statistics of all the plugins a single author has contributed to, you can use  
 `[plugin-info-cards author=automattic]`
 
 ### Note ###
