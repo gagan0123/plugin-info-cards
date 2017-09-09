@@ -172,6 +172,8 @@ if ( ! class_exists( 'Plugin_Info_Cards' ) ) {
 					'target'     => array(),
 					'data-slug'  => array(),
 					'aria-label' => array(),
+					'class'      => array(),
+					'data-name'  => array(),
 				),
 				'abbr'       => array(
 					'title'  => array(),
@@ -184,7 +186,9 @@ if ( ! class_exists( 'Plugin_Info_Cards' ) ) {
 				'pre'        => array(),
 				'em'         => array(),
 				'strong'     => array(),
-				'ul'         => array(),
+				'ul'         => array(
+					'class'  => array(),
+				),
 				'ol'         => array(),
 				'li'         => array(),
 				'p'          => array(),
