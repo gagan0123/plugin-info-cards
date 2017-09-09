@@ -109,22 +109,28 @@ if ( ! class_exists( 'Plugin_Info_Cards' ) ) {
 		 */
 		public function render_shortcode( $atts ) {
 
-			$output = '';
-			if ( isset( $atts['author'] ) ) {
-				$plugins = $this->helper->get_plugin_by_author( $atts['author'] );
-
-				foreach ( $plugins as $plugin ) {
-					$output .= $this->generate_html( $plugin );
+			$output  = '';
+			$author  = isset( $atts['author'] ) ? filter_var( $atts['author'] ) : false;
+			if ( false !== $author ) {
+				$plugins = $this->helper->get_plugin_by_author( $author );
+				if ( ! is_wp_error( $plugins ) && ! empty( $plugins ) ) {
+					foreach ( $plugins as $plugin ) {
+						$output .= $this->generate_html( $plugin );
+					}
+				} else {
+					/* translators: 1: Slug of the author. */
+					$output .= sprintf( __( 'Failed to retrieve plugins for author %s', 'plugin-info-cards' ), $author );
 				}
 			}
 
 			foreach ( $atts as $key => $slug ) {
 				if ( is_int( $key ) ) {
-					$plugin  = $this->helper->get_plugin_by_slug( $slug );
+					$plugin = $this->helper->get_plugin_by_slug( $slug );
 					if ( ! is_wp_error( $plugin ) ) {
-						$output  .= $this->generate_html( $plugin );
+						$output .= $this->generate_html( $plugin );
 					} else {
-						$output .= 'Failed to retreive plugin information for the plugin ' . $slug . '<br>';
+						/* translators: 1: Slug of the plugin. */
+						$output .= sprintf( __( 'Failed to retreive plugin information for the plugin %s', 'plugin-info-cards' ), $slug ) . '<br>';
 					}
 				}
 			}
@@ -176,10 +182,10 @@ if ( ! class_exists( 'Plugin_Info_Cards' ) ) {
 					'data-name'  => array(),
 				),
 				'abbr'       => array(
-					'title'  => array(),
+					'title' => array(),
 				),
 				'acronym'    => array(
-					'title'  => array(),
+					'title' => array(),
 				),
 				'cite'       => array(),
 				'code'       => array(),
@@ -187,7 +193,7 @@ if ( ! class_exists( 'Plugin_Info_Cards' ) ) {
 				'em'         => array(),
 				'strong'     => array(),
 				'ul'         => array(
-					'class'  => array(),
+					'class' => array(),
 				),
 				'ol'         => array(),
 				'li'         => array(),
