@@ -276,7 +276,7 @@ if ( ! class_exists( 'Plugin_Info_Cards_Helper' ) ) {
 				);
 				if ( ! is_wp_error( $plugin ) ) {
 					$plugin = $this->remove_unused_params( $plugin );
-					set_transient( 'pic_plugin_' . $slug, $plugin, 6 * HOUR_IN_SECONDS );
+					set_transient( 'pic_plugin_' . $slug, $plugin, 1 * HOUR_IN_SECONDS );
 				}
 			}
 			return $plugin;
@@ -314,7 +314,7 @@ if ( ! class_exists( 'Plugin_Info_Cards_Helper' ) ) {
 				if ( isset( $result->plugins ) && is_array( $result->plugins ) ) {
 					$plugins = array_map( array( $this, 'remove_unused_params' ), $result->plugins );
 				}
-				set_transient( 'pic_author_' . $author, $plugins, 6 * HOUR_IN_SECONDS );
+				set_transient( 'pic_author_' . $author, $plugins, 1 * HOUR_IN_SECONDS );
 			}
 			return $plugins;
 		}
