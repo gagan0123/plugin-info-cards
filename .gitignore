@@ -2,3 +2,6 @@ node_modules/
 .sass-cache/
 package-lock.json
 .DS_Store
+/wordpress
+/profiler-output/
+.lando.local.yml
